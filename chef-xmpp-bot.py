@@ -7,9 +7,8 @@ import datetime
 
 username = 'YOURUSERNAME@YOURSERVER.COM'
 password = 'YOURPASSWORD'
-resouce = 'chef-xmpp-bot'
+resource = 'chef-xmpp-bot'
 chatroom = 'YOURCHATROOM@conference.YOURDOMAIN.COM'
-
 STALE_TIME = 60 * 30 # 30 minutes
 
 class ChefXMPPBot(JabberBot):
@@ -27,8 +26,9 @@ class ChefXMPPBot(JabberBot):
         @botcmd
         def search ( self, mess, args):
                 list = "Search results for query : %s <br/>" % args
+                list += "Name   Environment<br/>"
                 for row in Search('node', args):
-                        list += "%s <br/>" % row.object.name
+                        list += "%s     %s<br/>" % (row.object.name, row.object.chef_environment)
                 return(list)
 
 
