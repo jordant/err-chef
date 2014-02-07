@@ -1,0 +1,6 @@
+[Core]
+Name = Chef
+Module = chef
+
+[Documentation]
+Description = Search via Chef API
